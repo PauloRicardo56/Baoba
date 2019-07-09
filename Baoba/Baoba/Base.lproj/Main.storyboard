@@ -101,7 +101,7 @@
                                     <color key="titleColor" red="1" green="0.99618815709999997" blue="0.94709079910000005" alpha="0.89870505140000001" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FtS-37-gGs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="usuario" translatesAutoresizingMaskIntoConstraints="NO" id="FtS-37-gGs">
                                 <rect key="frame" x="68" y="60" width="279" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -122,14 +122,14 @@
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tC-Qz-OHg">
-                                <rect key="frame" x="172" y="451" width="222" height="30"/>
+                                <rect key="frame" x="145" y="451" width="249" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JwQ-Nm-ppX">
-                                <rect key="frame" x="172" y="490" width="222" height="29"/>
+                                <rect key="frame" x="145" y="490" width="249" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Masculino"/>
@@ -147,4 +147,7 @@
             <point key="canvasLocation" x="1434.7826086956522" y="187.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="usuario" width="225" height="225"/>
+    </resources>
 </document>
