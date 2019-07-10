@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstFormController: UIViewController, imagePickerFotoSelecionada{
+class FirstFormController: UIView, imagePickerFotoSelecionada {
     
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -18,8 +18,10 @@ class FirstFormController: UIViewController, imagePickerFotoSelecionada{
     
     let imagePicker = ImagePicker()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    
+    func viewDidLoad() {
+//        super.viewDidLoad()
 
         self.arredondaView()
         self.imagePicker.delegate = self
@@ -34,7 +36,7 @@ class FirstFormController: UIViewController, imagePickerFotoSelecionada{
         }else{
             multimidia.sourceType = .photoLibrary
         }
-        self.present(multimidia, animated: true, completion: nil)
+//        self.present(multimidia, animated: true, completion: nil)
     }
     
     // delegate
@@ -48,7 +50,7 @@ class FirstFormController: UIViewController, imagePickerFotoSelecionada{
         let menu = ImagePicker().menuDeOpcao { (opcao) in
             self.mostrarMultimidia(opcao: opcao)
         }
-        present(menu,animated: true,completion: nil)
+//        present(menu,animated: true,completion: nil)
     }
     
     @IBAction func addPerson(_ sender: Any) {
