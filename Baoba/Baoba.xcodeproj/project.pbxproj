@@ -11,9 +11,10 @@
 		23C85BBF22D5264C00C99D03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C85BBD22D5264C00C99D03 /* Main.storyboard */; };
 		23C85BC122D5264C00C99D03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C85BC022D5264C00C99D03 /* Assets.xcassets */; };
 		23C85BC422D5264C00C99D03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C85BC222D5264C00C99D03 /* LaunchScreen.storyboard */; };
-		E60DFFDB22D56EA400447260 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFDA22D56EA400447260 /* FirstViewController.swift */; };
-		E60DFFDD22D5702500447260 /* FirstFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFDC22D5702500447260 /* FirstFormController.swift */; };
-		E60DFFE222D57A8F00447260 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFE122D57A8E00447260 /* ImagePicker.swift */; };
+		E60DFFE922D6300800447260 /* FirstFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFE722D6300700447260 /* FirstFormController.swift */; };
+		E60DFFEA22D6300800447260 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFE822D6300700447260 /* FirstViewController.swift */; };
+		E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFEB22D6302100447260 /* ImagePicker.swift */; };
+		E60DFFEE22D6327500447260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFED22D6327500447260 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +24,10 @@
 		23C85BC022D5264C00C99D03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23C85BC322D5264C00C99D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23C85BC522D5264C00C99D03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E60DFFDA22D56EA400447260 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E60DFFDC22D5702500447260 /* FirstFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormController.swift; sourceTree = "<group>"; };
-		E60DFFE122D57A8E00447260 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E60DFFE722D6300700447260 /* FirstFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstFormController.swift; sourceTree = "<group>"; };
+		E60DFFE822D6300700447260 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		E60DFFEB22D6302100447260 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E60DFFED22D6327500447260 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		23C85BB822D5264C00C99D03 /* Baoba */ = {
 			isa = PBXGroup;
 			children = (
+				E60DFFE422D62E3400447260 /* Models */,
+				E60DFFE622D62E3400447260 /* ViewControllers */,
+				E60DFFE522D62E3400447260 /* Views */,
 				23C85BB922D5264C00C99D03 /* AppDelegate.swift */,
-				23C85BBD22D5264C00C99D03 /* Main.storyboard */,
-				23C85BC022D5264C00C99D03 /* Assets.xcassets */,
 				23C85BC222D5264C00C99D03 /* LaunchScreen.storyboard */,
+				23C85BC022D5264C00C99D03 /* Assets.xcassets */,
 				23C85BC522D5264C00C99D03 /* Info.plist */,
-				E60DFFDA22D56EA400447260 /* FirstViewController.swift */,
-				E60DFFDC22D5702500447260 /* FirstFormController.swift */,
-				E60DFFE122D57A8E00447260 /* ImagePicker.swift */,
 			);
 			path = Baoba;
+			sourceTree = "<group>";
+		};
+		E60DFFE422D62E3400447260 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E60DFFEB22D6302100447260 /* ImagePicker.swift */,
+				E60DFFED22D6327500447260 /* Person.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E60DFFE522D62E3400447260 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				23C85BBD22D5264C00C99D03 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E60DFFE622D62E3400447260 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E60DFFE722D6300700447260 /* FirstFormController.swift */,
+				E60DFFE822D6300700447260 /* FirstViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E60DFFEE22D6327500447260 /* Person.swift in Sources */,
 				23C85BBA22D5264C00C99D03 /* AppDelegate.swift in Sources */,
-				E60DFFE222D57A8F00447260 /* ImagePicker.swift in Sources */,
-				E60DFFDB22D56EA400447260 /* FirstViewController.swift in Sources */,
-				E60DFFDD22D5702500447260 /* FirstFormController.swift in Sources */,
+				E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */,
+				E60DFFE922D6300800447260 /* FirstFormController.swift in Sources */,
+				E60DFFEA22D6300800447260 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
