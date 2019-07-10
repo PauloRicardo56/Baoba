@@ -9,22 +9,19 @@
 import UIKit
 
 class Person{
-    let nome: String
-    let sexo: Character
-    let descricao: String
-    let image: UIImage
+    var nome = String()
+    var sexo = String()
+    var descricao = String()
+    var image = UIImage()
     
-    let pai: Person?
-    let mae: Person?
-    let conjuge: Person?
+    let pai = Person()
+    let mae = Person()
+    let conjuge = Person()
     let irmaos = Array<Person>()
     let filhos = Array<Person>()
     
-    init(nome: String, sexo: Character, descricao: String,image: UIImage) {
-        self.nome = nome
-        self.sexo = sexo
-        self.descricao = descricao
-        self.image = image
+    init() {
     }
-    
 }
+
+
