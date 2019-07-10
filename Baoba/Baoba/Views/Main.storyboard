@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ge7-7m-Lo6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NEQ-RR-ImF">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Collection View Controller-->
+        <scene sceneID="r93-DS-2Zn">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwV-KF-16c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <collectionViewController id="NEQ-RR-ImF" customClass="CollectionViewController" customModule="Baoba" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nR2-Ya-Laf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewLayout key="collectionViewLayout" id="ajR-eN-LBR" customClass="CustomLayout_v1" customModule="Baoba" customModuleProvider="target"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="HnA-ul-Sz0" customClass="CollectionViewCell" customModule="Baoba" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="0.0" width="209" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="209" height="205"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AF3-ZM-evn">
+                                            <rect key="frame" x="12" y="164" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r2J-9d-2ve">
+                                            <rect key="frame" x="0.0" y="0.0" width="209" height="205"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="r2J-9d-2ve" firstAttribute="leading" secondItem="HnA-ul-Sz0" secondAttribute="leading" id="9gV-a3-VWw"/>
+                                    <constraint firstAttribute="trailing" secondItem="r2J-9d-2ve" secondAttribute="trailing" id="gWF-R9-AaX"/>
+                                    <constraint firstItem="r2J-9d-2ve" firstAttribute="top" secondItem="HnA-ul-Sz0" secondAttribute="top" id="jxU-TG-hrH"/>
+                                    <constraint firstAttribute="bottom" secondItem="r2J-9d-2ve" secondAttribute="bottom" id="sDJ-N6-wUY"/>
+                                </constraints>
+                                <size key="customSize" width="209" height="205"/>
+                                <connections>
+                                    <outlet property="image" destination="r2J-9d-2ve" id="wMU-DX-XGj"/>
+                                    <outlet property="row" destination="AF3-ZM-evn" id="hhX-sv-YR8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="NEQ-RR-ImF" id="znk-vK-FLX"/>
+                            <outlet property="delegate" destination="NEQ-RR-ImF" id="478-DQ-xag"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+            </objects>
+            <point key="canvasLocation" x="-2168.1159420289855" y="-147.32142857142856"/>
+        </scene>
         <!--First View Controller-->
         <scene sceneID="Qjd-EY-fU2">
             <objects>
