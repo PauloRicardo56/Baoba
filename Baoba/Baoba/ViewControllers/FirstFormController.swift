@@ -42,7 +42,6 @@ class FirstFormController: UIView, imagePickerFotoSelecionada {
     // delegate
     func imagePickerFotoSelecionada(image: UIImage) {
         self.personImageView.image = image
-        self.addBtn.isHidden = true
     }
     
     //IBActions
@@ -62,6 +61,4 @@ class FirstFormController: UIView, imagePickerFotoSelecionada {
         self.personImageView.layer.borderWidth = 1
         self.personImageView.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
-    
 }
