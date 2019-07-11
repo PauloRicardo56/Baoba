@@ -17,6 +17,7 @@
 		E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFEB22D6302100447260 /* ImagePicker.swift */; };
 		E60DFFEE22D6327500447260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFED22D6327500447260 /* Person.swift */; };
 		E6604F6122D6521F0074AADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6604F6022D6521F0074AADA /* Main.storyboard */; };
+		E6604F8B22D7AB140074AADA /* FormAddPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6604F8A22D7AB140074AADA /* FormAddPerson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E60DFFEB22D6302100447260 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E60DFFED22D6327500447260 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E6604F6022D6521F0074AADA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E6604F8A22D7AB140074AADA /* FormAddPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddPerson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,6 @@
 		23C85BCD22D676BF00C99D03 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				23C85BD222D6778C00C99D03 /* CollectionViewController.swift */,
 				23C85BD422D677D600C99D03 /* CollectionViewCell.swift */,
 				23C85BCF22D676FA00C99D03 /* CustomLayout.swift */,
 			);
@@ -106,7 +107,9 @@
 		E60DFFE622D62E3400447260 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				23C85BD222D6778C00C99D03 /* CollectionViewController.swift */,
 				E60DFFE822D6300700447260 /* FirstViewController.swift */,
+				E6604F8A22D7AB140074AADA /* FormAddPerson.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				E60DFFEE22D6327500447260 /* Person.swift in Sources */,
 				23C85BD122D676FA00C99D03 /* CustomLayout.swift in Sources */,
+				E6604F8B22D7AB140074AADA /* FormAddPerson.swift in Sources */,
 				23C85BD522D677D600C99D03 /* CollectionViewCell.swift in Sources */,
 				23C85BBA22D5264C00C99D03 /* AppDelegate.swift in Sources */,
 				23C85BD322D6778C00C99D03 /* CollectionViewController.swift in Sources */,
@@ -327,7 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CG83DPH532;
+				DEVELOPMENT_TEAM = DRP2X5MTUR;
 				INFOPLIST_FILE = Baoba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,7 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CG83DPH532;
+				DEVELOPMENT_TEAM = DRP2X5MTUR;
 				INFOPLIST_FILE = Baoba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
