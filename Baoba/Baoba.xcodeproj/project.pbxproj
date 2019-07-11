@@ -14,7 +14,6 @@
 		23C85BD122D676FA00C99D03 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C85BCF22D676FA00C99D03 /* CustomLayout.swift */; };
 		23C85BD322D6778C00C99D03 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C85BD222D6778C00C99D03 /* CollectionViewController.swift */; };
 		23C85BD522D677D600C99D03 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C85BD422D677D600C99D03 /* CollectionViewCell.swift */; };
-		E60DFFE922D6300800447260 /* FirstFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFE722D6300700447260 /* FirstFormController.swift */; };
 		E60DFFEA22D6300800447260 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFE822D6300700447260 /* FirstViewController.swift */; };
 		E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFEB22D6302100447260 /* ImagePicker.swift */; };
 		E60DFFEE22D6327500447260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFED22D6327500447260 /* Person.swift */; };
@@ -31,7 +30,6 @@
 		23C85BCF22D676FA00C99D03 /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		23C85BD222D6778C00C99D03 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		23C85BD422D677D600C99D03 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		E60DFFE722D6300700447260 /* FirstFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstFormController.swift; sourceTree = "<group>"; };
 		E60DFFE822D6300700447260 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		E60DFFEB22D6302100447260 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E60DFFED22D6327500447260 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		E60DFFE622D62E3400447260 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E60DFFE722D6300700447260 /* FirstFormController.swift */,
 				E60DFFE822D6300700447260 /* FirstViewController.swift */,
 			);
 			path = ViewControllers;
@@ -195,7 +192,6 @@
 				23C85BBA22D5264C00C99D03 /* AppDelegate.swift in Sources */,
 				23C85BD322D6778C00C99D03 /* CollectionViewController.swift in Sources */,
 				E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */,
-				E60DFFE922D6300800447260 /* FirstFormController.swift in Sources */,
 				E60DFFEA22D6300800447260 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PA96H36BQZ;
+				DEVELOPMENT_TEAM = DRP2X5MTUR;
 				INFOPLIST_FILE = Baoba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,7 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PA96H36BQZ;
+				DEVELOPMENT_TEAM = DRP2X5MTUR;
 				INFOPLIST_FILE = Baoba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

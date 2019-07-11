@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NEQ-RR-ImF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ge7-7m-Lo6">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Arvore-->
         <scene sceneID="r93-DS-2Zn">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwV-KF-16c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,9 +58,10 @@
                             <outlet property="delegate" destination="NEQ-RR-ImF" id="478-DQ-xag"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Arvore" id="dEz-bW-ReB"/>
                 </collectionViewController>
             </objects>
-            <point key="canvasLocation" x="-2168.1159420289855" y="-147.32142857142856"/>
+            <point key="canvasLocation" x="-1257.9710144927537" y="-147.32142857142856"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="Qjd-EY-fU2">
@@ -73,11 +74,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29V-rl-rW2">
                                 <rect key="frame" x="142" y="383" width="130" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="+">
                                     <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPerson:" destination="Ge7-7m-Lo6" eventType="touchUpInside" id="mYi-ho-qBH"/>
+                                    <action selector="addPerson:" destination="Ge7-7m-Lo6" eventType="touchUpInside" id="0GL-Xs-5s3"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUT-to-E7h" customClass="FirstFormController" customModule="Baoba" customModuleProvider="target">
@@ -105,7 +107,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q5k-9G-hun">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q5k-9G-hun">
                                         <rect key="frame" x="122" y="244" width="237" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
@@ -121,25 +123,16 @@
                                         </segments>
                                         <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-We-3xs">
-                                        <rect key="frame" x="8" y="343" width="358" height="331"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-We-3xs">
+                                        <rect key="frame" x="17" y="343" width="340" height="340"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od2-MM-Hd4">
-                                        <rect key="frame" x="132" y="682" width="111" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Adicionar"/>
-                                        <connections>
-                                            <action selector="addPerson:" destination="rUT-to-E7h" eventType="touchUpInside" id="J6H-4I-nww"/>
-                                            <action selector="usrConfirm:" destination="Ge7-7m-Lo6" eventType="touchUpInside" id="NCK-GD-O9f"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDo-sQ-2xC">
-                                        <rect key="frame" x="80" y="19" width="214" height="210"/>
+                                        <rect key="frame" x="80" y="19" width="214" height="214"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -147,23 +140,27 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="addImage:" destination="rUT-to-E7h" eventType="touchUpInside" id="0Nb-JW-rWW"/>
+                                            <action selector="addImage:" destination="Ge7-7m-Lo6" eventType="touchUpInside" id="zsh-Lq-i6l"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0w-Xg-gJ9">
-                                        <rect key="frame" x="80" y="19" width="214" height="210"/>
+                                        <rect key="frame" x="80" y="19" width="214" height="214"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od2-MM-Hd4">
+                                        <rect key="frame" x="137" y="691" width="100" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Adicionar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="usrConfirm:" destination="Ge7-7m-Lo6" eventType="touchUpInside" id="zZk-RW-OAm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="addBtn" destination="Od2-MM-Hd4" id="9bi-jv-C50"/>
-                                    <outlet property="descriptionTextView" destination="XSL-We-3xs" id="vlZ-QP-Gsp"/>
-                                    <outlet property="nameTextField" destination="Q5k-9G-hun" id="Dt6-sp-g83"/>
-                                    <outlet property="personImageView" destination="m0w-Xg-gJ9" id="kOC-o9-B0q"/>
-                                    <outlet property="sexoSegmentedControl" destination="CcD-rH-gBz" id="GxE-eS-kOb"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -176,13 +173,37 @@
                         <viewLayoutGuide key="safeArea" id="7Z1-zv-n0B"/>
                     </view>
                     <connections>
-                        <outlet property="addBtn" destination="29V-rl-rW2" id="gl2-pv-DkD"/>
+                        <outlet property="addBtn" destination="29V-rl-rW2" id="fDw-VX-5YQ"/>
+                        <outlet property="addBtn2" destination="Od2-MM-Hd4" id="ecm-wA-eUQ"/>
+                        <outlet property="addFotoBtn" destination="iDo-sQ-2xC" id="s5j-jV-BS3"/>
+                        <outlet property="descriptionTextView" destination="XSL-We-3xs" id="w1G-SY-z8U"/>
+                        <outlet property="nameTextField" destination="Q5k-9G-hun" id="8Yn-2B-jaw"/>
                         <outlet property="newUsrData" destination="rUT-to-E7h" id="IOY-Mi-qgD"/>
+                        <outlet property="personImageView" destination="m0w-Xg-gJ9" id="LgW-zI-iZk"/>
+                        <outlet property="sexoSegmentedControl" destination="CcD-rH-gBz" id="clI-an-ZUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNb-Ph-lJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1226.0869565217392" y="-147.32142857142856"/>
+            <point key="canvasLocation" x="-315.94202898550725" y="-147.32142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uMO-48-Zm0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozq-Sn-fGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lTe-9Q-nGg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IOJ-P6-6iu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NEQ-RR-ImF" kind="relationship" relationship="rootViewController" id="Ddj-4f-EXd"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-2168.1159420289855" y="-147.32142857142856"/>
         </scene>
     </scenes>
 </document>
