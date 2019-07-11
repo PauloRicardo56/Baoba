@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ge7-7m-Lo6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lTe-9Q-nGg">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,13 +13,12 @@
         <!--Arvore-->
         <scene sceneID="r93-DS-2Zn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nwV-KF-16c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="NEQ-RR-ImF" customClass="CollectionViewController" customModule="Baoba" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nR2-Ya-Laf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewLayout key="collectionViewLayout" id="ajR-eN-LBR" customClass="CustomLayout_v1" customModule="Baoba" customModuleProvider="target"/>
+                        <collectionViewLayout key="collectionViewLayout" id="ajR-eN-LBR" customClass="CustomLayout" customModule="Baoba" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="HnA-ul-Sz0" customClass="CollectionViewCell" customModule="Baoba" customModuleProvider="target">
                                 <rect key="frame" x="102.5" y="0.0" width="209" height="205"/>
@@ -60,6 +59,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Arvore" id="dEz-bW-ReB"/>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwV-KF-16c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1257.9710144927537" y="-147.32142857142856"/>
         </scene>
@@ -190,7 +190,6 @@
         <!--Navigation Controller-->
         <scene sceneID="uMO-48-Zm0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ozq-Sn-fGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lTe-9Q-nGg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IOJ-P6-6iu">
@@ -202,6 +201,7 @@
                         <segue destination="NEQ-RR-ImF" kind="relationship" relationship="rootViewController" id="Ddj-4f-EXd"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozq-Sn-fGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2168.1159420289855" y="-147.32142857142856"/>
         </scene>

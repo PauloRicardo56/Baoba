@@ -2,7 +2,7 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
-    var numOfCells = 9
+    var numOfCells = 30
     var numOfSections = 1
     var lastIndex: IndexPath!
     var list: [CollectionViewCell] = []
@@ -73,10 +73,13 @@ class CollectionViewController: UICollectionViewController {
         lastIndex = indexPath
         cell.row.text = String(indexPath.row)
         print(indexPath)
-        if indexPath.row != 4 {
-            cell.isHidden = true
-            print(1111)
-        }
+        
+//        if indexPath.row != 4 && indexPath.row != 11 {
+//            cell.isHidden = true
+//        } else {
+//            cell.isHidden = false
+//        }
+        
         return cell
     }
     

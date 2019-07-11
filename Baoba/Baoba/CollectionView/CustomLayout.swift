@@ -8,6 +8,9 @@
 
 import UIKit
 
+let kReducedHeightColumnIndex = 1
+let kItemHeightAspect: CGFloat  = 2
+
 class CustomLayout: UICollectionViewLayout {
     
     var layoutMap = [IndexPath : UICollectionViewLayoutAttributes]()     // 1
@@ -17,17 +20,114 @@ class CustomLayout: UICollectionViewLayout {
     var totalItemsInSection = 0
     
     // 4
-    var totalColumns = 0
+    var totalColumns = 3
     var interItemsSpacing: CGFloat = 28
+    
+    var itemSize: CGSize!
+    var columnsXoffset: [CGFloat]!
+    
     
     // 5
     var contentInsets: UIEdgeInsets {
         return collectionView!.contentInset
+//        return UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
     }
     
     
     override var collectionViewContentSize: CGSize {
         return contentSize
+    }
+    
+    
+    override func prepare() {
+        // 1
+        layoutMap.removeAll()
+        
+//            Array(repeating: 0, count: totalColumns)    // [0.0, 0.0, 0.0]
+        
+        totalItemsInSection = collectionView!.numberOfItems(inSection: 0)    // 30
+        
+        // 2
+        if totalItemsInSection > 0 && totalColumns > 0 {
+            // 3
+            self.calculateItemsSize()
+            columnsYoffset = [itemSize.height/2, 0.0, itemSize.height/2]
+            
+            var itemIndex = 0
+            var contentSizeHeight: CGFloat = 0
+            
+            // 4
+            while itemIndex < totalItemsInSection {
+                // 5
+                let indexPath = IndexPath(item: itemIndex, section: 0)
+                let columnIndex = self.columnIndexForItemAt(indexPath: indexPath)
+                
+                // 6
+                let attributeRect = calculateItemFrame(indexPath: indexPath, columnIndex: columnIndex, columnYoffset: columnsYoffset[columnIndex])    // Como nossas cells serão sempre do msm tam uma função é dispensada.
+                let targetLayoutAttributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
+                targetLayoutAttributes.frame = attributeRect
+                
+                // 7
+                contentSizeHeight = max(attributeRect.maxY, contentSizeHeight)
+                
+                // Aqui eu faço com que a primeira e ultima coluna comecem um pouco mais abaixo.
+//                let initialYSpace: CGFloat = columnIndex != 1 ? attributeRect.maxY / 2 : 0.0
+                columnsYoffset[columnIndex] = attributeRect.maxY + interItemsSpacing
+                
+                layoutMap[indexPath] = targetLayoutAttributes
+                
+                itemIndex += 1
+            }
+            
+            // 8
+            contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right,
+                                 height: contentSizeHeight)
+        }
+    }
+    
+    
+    // Calculating the initial item’s size, depending on provided content size, and number of columns. Also, we fill a columnsXoffset array with x-position info, for each column.
+    func calculateItemsSize() {
+        
+        let contentWidthWithoutIndents = collectionView!.bounds.width - contentInsets.left - contentInsets.right    // 414.0 - (contentsInsets = .zero)
+        let itemWidth = (contentWidthWithoutIndents - (CGFloat(totalColumns) - 1) * interItemsSpacing) / CGFloat(totalColumns)    // 119.33
+        let itemHeight = itemWidth * kItemHeightAspect    // 238.66
+        
+        itemSize = CGSize(width: itemWidth, height: itemHeight)
+        
+        // Calculating offsets by X for each column
+        columnsXoffset = []    // [0.0, 147.33, 294.66] - X inicial da coluna
+        for columnIndex in 0...(totalColumns - 1) {
+            columnsXoffset.append(CGFloat(columnIndex) * (itemSize.width + interItemsSpacing))
+        }
+//        columnsXoffset[0] += 30
+    }
+    
+    
+    // 1
+    func columnIndexForItemAt(indexPath: IndexPath) -> Int {
+        let columnIndex = indexPath.item % totalColumns
+//        return self.isLastItemSingleInRow(indexPath) ? kReducedHeightColumnIndex : columnIndex
+        return columnIndex
+    }
+    
+    
+    // 2
+    func calculateItemFrame(indexPath: IndexPath, columnIndex: Int, columnYoffset: CGFloat) -> CGRect {
+        // 1
+//        let rowIndex = indexPath.item / totalColumns    // 1/2/3/4/5/6/7/8/9
+        
+//        let halfItemHeight = (itemSize.height - interItemsSpacing) / 2
+        
+        // 2
+//        let itemHeight = itemSize.height
+        
+        // 3
+//        if (rowIndex == 0 && columnIndex == kReducedHeightColumnIndex) || self.isLastItemSingleInRow(indexPath) {
+//            itemHeight = halfItemHeight
+//        }
+        
+        return CGRect(x: columnsXoffset[columnIndex], y: columnYoffset, width: itemSize.width, height: itemSize.height)
     }
     
     
@@ -44,55 +144,11 @@ class CustomLayout: UICollectionViewLayout {
     }
     
     
-    override func prepare() {
-        // 1
-        layoutMap.removeAll()
-        columnsYoffset = Array(repeating: 0, count: totalColumns)
-        
-        totalItemsInSection = collectionView!.numberOfItems(inSection: 0)
-        
-        // 2
-        if totalItemsInSection > 0 && totalColumns > 0 {
-            // 3
-            self.calculateItemsSize()
-            
-            var itemIndex = 0
-            var contentSizeHeight: CGFloat = 0
-            
-            // 4
-            while itemIndex < totalItemsInSection {
-                // 5
-                let indexPath = IndexPath(item: itemIndex, section: 0)
-                let columnIndex = self.columnIndexForItemAt(indexPath: indexPath)
-                
-                // 6
-                let attributeRect = calculateItemFrame(indexPath: indexPath, columnIndex: columnIndex, columnYoffset: columnsYoffset[columnIndex])
-                let targetLayoutAttributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
-                targetLayoutAttributes.frame = attributeRect
-                
-                // 7
-                contentSizeHeight = max(attributeRect.maxY, contentSizeHeight)
-                columnsYoffset[columnIndex] = attributeRect.maxY + interItemsSpacing
-                layoutMap[indexPath] = targetLayoutAttributes
-                
-                itemIndex += 1
-            }
-            
-            // 8
-            contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right,
-                                  height: contentSizeHeight)
-        }
+    // 4
+    private func isLastItemSingleInRow(_ indexPath: IndexPath) -> Bool {
+        return indexPath.item == (totalItemsInSection - 1) && indexPath.item % totalColumns == 0
     }
     
     
-    // 1
-    func columnIndexForItemAt(indexPath: IndexPath) -> Int {
-        return indexPath.item % totalColumns
-    }
-    // 2
-    func calculateItemFrame(indexPath: IndexPath, columnIndex: Int, columnYoffset: CGFloat) -> CGRect {
-        return CGRect.zero
-    }
-    // 3
-    func calculateItemsSize() {}
+    
 }
