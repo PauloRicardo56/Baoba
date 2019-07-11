@@ -21,11 +21,12 @@ class CustomLayout: UICollectionViewLayout {
     
     // 4
     var totalColumns = 3
-    var interItemsSpacing: CGFloat = 28
+    var interItemsSpacing: CGFloat = 20
     
     var itemSize: CGSize!
     var columnsXoffset: [CGFloat]!
     
+    let indexOfFocus = 4
     
     // 5
     var contentInsets: UIEdgeInsets {
@@ -80,8 +81,7 @@ class CustomLayout: UICollectionViewLayout {
             }
             
             // 8
-            contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right,
-                                 height: contentSizeHeight)
+            contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right, height: contentSizeHeight)
         }
     }
     
@@ -90,16 +90,18 @@ class CustomLayout: UICollectionViewLayout {
     func calculateItemsSize() {
         
         let contentWidthWithoutIndents = collectionView!.bounds.width - contentInsets.left - contentInsets.right    // 414.0 - (contentsInsets = .zero)
-        let itemWidth = (contentWidthWithoutIndents - (CGFloat(totalColumns) - 1) * interItemsSpacing) / CGFloat(totalColumns)    // 119.33
-        let itemHeight = itemWidth * kItemHeightAspect    // 238.66
+        let itemWidth = contentWidthWithoutIndents*0.8 / CGFloat(totalColumns)
+//            (contentWidthWithoutIndents - (CGFloat(totalColumns) - 1) * interItemsSpacing) / CGFloat(totalColumns)    // 119.33
+        let itemHeight = itemWidth * 1.2
+//        kItemHeightAspect    // 238.66
         
         itemSize = CGSize(width: itemWidth, height: itemHeight)
         
         // Calculating offsets by X for each column
-        columnsXoffset = []    // [0.0, 147.33, 294.66] - X inicial da coluna
-        for columnIndex in 0...(totalColumns - 1) {
-            columnsXoffset.append(CGFloat(columnIndex) * (itemSize.width + interItemsSpacing))
-        }
+        columnsXoffset = [0, collectionView!.bounds.width/2 - itemWidth/2, collectionView!.bounds.width - itemWidth]    // [0.0, 147.33, 294.66] - X inicial da coluna
+//        for columnIndex in 0...(totalColumns - 1) {
+//            columnsXoffset.append(CGFloat(columnIndex) * (itemSize.width + interItemsSpacing))
+//        }
 //        columnsXoffset[0] += 30
     }
     
@@ -123,8 +125,8 @@ class CustomLayout: UICollectionViewLayout {
 //        let itemHeight = itemSize.height
         
         // 3
-//        if (rowIndex == 0 && columnIndex == kReducedHeightColumnIndex) || self.isLastItemSingleInRow(indexPath) {
-//            itemHeight = halfItemHeight
+//        if indexPath.item == indexOfFocus {
+//            return CGRect(x: columnsXoffset[columnIndex], y: columnYoffset, width: itemSize.width*1.2, height: itemSize.height*1.2)
 //        }
         
         return CGRect(x: columnsXoffset[columnIndex], y: columnYoffset, width: itemSize.width, height: itemSize.height)
