@@ -10,23 +10,27 @@ import UIKit
 
 class Person{
     
-    var nome: String
-    var sexo : String
-    var descricao: String
-    var image: UIImage
+    var nome = String()
+    var sexo = String()
+    var descricao = String()
+    var image = UIImage()
+    var visivel:Bool
     
-    let pai =  Person(nome: "Desconhecido", sexo: "Desconhecido", descricao: "...", image: UIImage(named: "imageDesconhecido")!)
-    let mae =  Person(nome: "Desconhecido", sexo: "Desconhecido", descricao: "...", image: UIImage(named: "imageDesconhecido")!)
-    let conjuge = Person(nome: "Desconhecido", sexo: "Desconhecido", descricao: "...", image: UIImage(named: "imageDesconhecido")!)
-    let irmaos = Array<Person>()
-    let filhos = Array<Person>()
+    weak var pai:Person?
+    weak var mae:Person?
+    weak var conjuge:Person?
+    var irmaos = Array<Person>()
+    var filhos = Array<Person>()
     
-    init(nome: String, sexo: String, descricao: String, image: UIImage) {
+    init(nome: String, sexo: String, descricao: String, image: UIImage,visivel: Bool) {
         self.nome = nome
         self.sexo = sexo
         self.descricao = descricao
         self.image = image
+        self.visivel = visivel
     }
+    
+
 }
 
 

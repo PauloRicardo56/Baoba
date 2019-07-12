@@ -72,11 +72,16 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             return
         }
         
-        let pessoa = Person(nome: nome, sexo: sexo, descricao: description, image: image)
-        persons.append(pessoa)
         
-        cell.image.image = pessoa.image
-        cell.name.text = pessoa.nome
+        let pessoa = Person(nome: nome, sexo: sexo, descricao: description, image: image,visivel: true)
+        pessoa.pai = desconhecido
+        pessoa.mae = desconhecido
+        pessoa.conjuge = desconhecido
+        
+        persons.append(pessoa)
+        mainPerson = pessoa
+        
+        collectionView.reloadData()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -93,7 +98,7 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             textView.resignFirstResponder()
             return false
         }
-        return false
+        return true
     }
     
 //    func textViewDidEndEditing(_ textView: UITextView) {

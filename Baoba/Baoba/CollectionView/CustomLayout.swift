@@ -52,7 +52,7 @@ class CustomLayout: UICollectionViewLayout {
         if totalItemsInSection > 0 && totalColumns > 0 {
             // 3
             self.calculateItemsSize()
-            columnsYoffset = [itemSize.height/2, 0.0, itemSize.height/2]
+            columnsYoffset = [itemSize.height/2, self.collectionView!.bounds.size.height*0.05, itemSize.height/2]
             
             var itemIndex = 0
             var contentSizeHeight: CGFloat = 0
@@ -94,7 +94,7 @@ class CustomLayout: UICollectionViewLayout {
     func calculateItemsSize() {
         
         let contentWidthWithoutIndents = collectionView!.bounds.width - contentInsets.left - contentInsets.right    // 414.0 - (contentsInsets = .zero)
-        let itemWidth = contentWidthWithoutIndents*0.8 / CGFloat(totalColumns)
+        let itemWidth = contentWidthWithoutIndents*0.95 / CGFloat(totalColumns)
 //            (contentWidthWithoutIndents - (CGFloat(totalColumns) - 1) * interItemsSpacing) / CGFloat(totalColumns)    // 119.33
         let itemHeight = itemWidth * 1.2
 //        kItemHeightAspect    // 238.66

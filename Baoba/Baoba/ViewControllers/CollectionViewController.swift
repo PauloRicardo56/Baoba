@@ -10,6 +10,9 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     var currCell: IndexPath? = nil
     var cell = CollectionViewCell()
     var persons = [Person]()
+    var vetorPessoas: [Int:Person] = [:]
+    let desconhecido = Person(nome: "Desconhecido", sexo: "Desconhecido", descricao: "Desconhecido", image: UIImage(named: "imageDesconhecido")!,visivel: true)
+    weak var mainPerson:Person?
     
     //@IBOutlet weak var newUsrData: FirstFormController!
     @IBOutlet weak var newUsrData: UIScrollView!
@@ -26,6 +29,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker.delegate = self
+        self.mainPerson = desconhecido
     }
     
     // Como começar uma CollectionView na última cell?
@@ -43,17 +47,32 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         return numOfCells
     }
     
+    
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        lastIndex = indexPath
-
-        if indexPath.row != 4 {
-            cell.isHidden = true
-        } else {
-            cell.isHidden = false
-        }
         
+        cell.isHidden = true
+        cell.image.image = nil
+        cell.name.text = ""
+        
+        if let principal = self.mainPerson{
+            switch(indexPath.row){
+            case 0:
+                cell.image.image = principal.mae?.image
+                cell.name.text = principal.mae?.nome
+                cell.isHidden = false
+                break
+            case 4:
+                cell.image.image = principal.image
+                cell.name.text = principal.nome
+                cell.isHidden = false
+                break
+            default:
+                cell.isHidden = true
+            }
+        }
         return cell
     }
 
