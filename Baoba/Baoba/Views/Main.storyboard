@@ -17,7 +17,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nR2-Ya-Laf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="ajR-eN-LBR" customClass="CustomLayout" customModule="Baoba" customModuleProvider="target"/>
                         <view key="backgroundView" hidden="YES" contentMode="scaleToFill" fixedFrame="YES" id="rUT-to-E7h" customClass="FirstFormController" customModule="Baoba" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="-44" width="414" height="896"/>
@@ -108,9 +108,30 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="209" height="205"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ohk-Ur-t5h">
+                                            <rect key="frame" x="0.0" y="0.0" width="209" height="159"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qm-yN-9vc">
+                                            <rect key="frame" x="0.0" y="184.5" width="209" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7Qm-yN-9vc" secondAttribute="bottom" id="2LL-tY-bjj"/>
+                                    <constraint firstItem="7Qm-yN-9vc" firstAttribute="leading" secondItem="HnA-ul-Sz0" secondAttribute="leading" id="GiN-5E-qpi"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Qm-yN-9vc" secondAttribute="trailing" id="IES-Ea-3gI"/>
+                                    <constraint firstItem="7Qm-yN-9vc" firstAttribute="top" secondItem="Ohk-Ur-t5h" secondAttribute="bottom" id="cOu-FK-pM9"/>
+                                </constraints>
                                 <size key="customSize" width="209" height="205"/>
+                                <connections>
+                                    <outlet property="image" destination="Ohk-Ur-t5h" id="tem-w7-jfT"/>
+                                    <outlet property="name" destination="7Qm-yN-9vc" id="rac-70-W9q"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

@@ -8,11 +8,11 @@ class CollectionViewController: UICollectionViewController {
     var list: [CollectionViewCell] = []
     var listIndex: [IndexPath] = []
     var currCell: IndexPath? = nil
-    var cell = UICollectionViewCell()
+    var cell = CollectionViewCell()
+    var persons = [Person]()
     
     //@IBOutlet weak var newUsrData: FirstFormController!
     @IBOutlet weak var newUsrData: UIView!
-    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var personImageView: UIImageView!
     
     @IBOutlet weak var addFotoBtn: UIButton!
@@ -25,7 +25,6 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.arredondaButton(button: addBtn, multiplicador: 0.5)
         self.imagePicker.delegate = self
     }
     
@@ -34,16 +33,7 @@ class CollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         self.collectionView.scrollToItem(at: IndexPath(item: numOfCells-1, section: numOfSections-1), at: UICollectionView.ScrollPosition.top, animated: false)
     }
-    
-    
-    
-//    func setColor(indexPath: IndexPath) -> UIColor {
-//        if indexPath.row > numOfCells {
-//            return .black
-//        }
-//
-//        return .init(hue: CGFloat(indexPath.row) / CGFloat(numOfCells), saturation: 1.0, brightness: 1.0, alpha: 0.5)
-//    }
+
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -55,14 +45,9 @@ class CollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        //        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell") // Configurando célula pelo código
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-//        cell.label.text = "\(indexPath.row)"
-//        cell.backgroundColor = setColor(indexPath: indexPath)
         lastIndex = indexPath
-        //cell.row.text = String(indexPath.row)
-        print(indexPath)
-        
+
         if indexPath.row != 4 {
             cell.isHidden = true
         } else {
@@ -84,7 +69,6 @@ class CollectionViewController: UICollectionViewController {
             list.remove(at: index)
             listIndex.remove(at: listIndex.firstIndex(of: indexPath)!)
             UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromBottom, animations: {
-//                cell.backgroundColor = self.setColor(indexPath: indexPath)
             }, completion: nil)
         }
     }
@@ -113,15 +97,13 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func mostraView(cell: UICollectionViewCell){
-        
-        //        newUsrData.isHidden = false
+
         cell.isHidden = true
         newUsrData.isHidden = false
         newUsrData.alpha = 1.0
         usrViewBounds()
         
         newUsrData.transform = CGAffineTransform(scaleX: 0.3, y: 2)
-        //        newUsrData.transform = CGAffineTransform(rotationAngle: 0.5)
         
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
             self.newUsrData.transform = .identity

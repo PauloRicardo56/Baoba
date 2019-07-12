@@ -61,5 +61,21 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             self.cell.isHidden = false
         }))
         
+        var sexo = String()
+        if sexoSegmentedControl.selectedSegmentIndex == 0{
+            sexo = "Masculino"
+        }else{
+            sexo = "Feminino"
+        }
+        
+        guard let nome = self.nameTextField.text, let image = self.personImageView.image else{
+            return
+        }
+        
+        let pessoa = Person(nome: nome, sexo: sexo, descricao: self.descriptionTextView.text, image: image)
+        persons.append(pessoa)
+        
+        cell.image.image = pessoa.image
+        cell.name.text = pessoa.nome
     }
 }
