@@ -68,14 +68,36 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             sexo = "Feminino"
         }
         
-        guard let nome = self.nameTextField.text, let image = self.personImageView.image else{
+        guard let nome = self.nameTextField.text, let image = self.personImageView.image,let description = self.descriptionTextView.text else{
             return
         }
         
-        let pessoa = Person(nome: nome, sexo: sexo, descricao: self.descriptionTextView.text, image: image)
+        let pessoa = Person(nome: nome, sexo: sexo, descricao: description, image: image)
         persons.append(pessoa)
         
         cell.image.image = pessoa.image
         cell.name.text = pessoa.nome
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        newUsrData.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return false
+    }
+    
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        newUsrData.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
+//    }
+    
 }

@@ -84,7 +84,7 @@ class CustomLayout: UICollectionViewLayout {
             contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right, height: contentSizeHeight)
         }
         
-        UIView.animate(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, options: [.autoreverse, .curveEaseInOut, .curveLinear, .repeat, .], animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+        //UIView.animate(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, options: [.autoreverse, .curveEaseInOut, .curveLinear, .repeat, .], animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
     }
     
     

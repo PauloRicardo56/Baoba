@@ -1,6 +1,6 @@
 import UIKit
 
-class CollectionViewController: UICollectionViewController {
+class CollectionViewController: UICollectionViewController,UITextFieldDelegate,UITextViewDelegate {
     
     var numOfCells = 9
     var numOfSections = 1
@@ -12,7 +12,7 @@ class CollectionViewController: UICollectionViewController {
     var persons = [Person]()
     
     //@IBOutlet weak var newUsrData: FirstFormController!
-    @IBOutlet weak var newUsrData: UIView!
+    @IBOutlet weak var newUsrData: UIScrollView!
     @IBOutlet weak var personImageView: UIImageView!
     
     @IBOutlet weak var addFotoBtn: UIButton!

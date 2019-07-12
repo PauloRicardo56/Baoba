@@ -22,7 +22,6 @@ class Person{
     let filhos = Array<Person>()
     
     init(nome: String, sexo: String, descricao: String, image: UIImage) {
-        
         self.nome = nome
         self.sexo = sexo
         self.descricao = descricao
