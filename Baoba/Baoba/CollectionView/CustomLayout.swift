@@ -13,13 +13,13 @@ let kItemHeightAspect: CGFloat  = 2
 
 class CustomLayout: UICollectionViewLayout {
     
-    var layoutMap = [IndexPath : UICollectionViewLayoutAttributes]()     // 1
-    var columnsYoffset: [CGFloat]!                                       // 2
-    var contentSize: CGSize!                                             // 3
+    var layoutMap = [IndexPath : UICollectionViewLayoutAttributes]()
+    var columnsYoffset: [CGFloat]!
+    var contentSize: CGSize!
     
     var totalItemsInSection = 0
     
-    // 4
+    
     var totalColumns = 3
     var interItemsSpacing: CGFloat = 20
     
@@ -28,10 +28,9 @@ class CustomLayout: UICollectionViewLayout {
     
     let indexOfFocus = 4
     
-    // 5
+    
     var contentInsets: UIEdgeInsets {
         return collectionView!.contentInset
-//        return UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
     }
     
     
@@ -41,38 +40,32 @@ class CustomLayout: UICollectionViewLayout {
     
     
     override func prepare() {
-        // 1
-        layoutMap.removeAll()
         
-//            Array(repeating: 0, count: totalColumns)    // [0.0, 0.0, 0.0]
+        layoutMap.removeAll()
+//       columnsYoffset = Array(repeating: 0, count: totalColumns)    // [0.0, 0.0, 0.0]
         
         totalItemsInSection = collectionView!.numberOfItems(inSection: 0)    // 30
         
-        // 2
         if totalItemsInSection > 0 && totalColumns > 0 {
-            // 3
+            
             self.calculateItemsSize()
-            columnsYoffset = [itemSize.height/2, self.collectionView!.bounds.size.height*0.05, itemSize.height/2]
+            columnsYoffset = [itemSize.height/2, self.collectionView!.bounds.size.height*0.05, itemSize.height/2]    // Aqui eu faço com que a primeira e última coluna comecem um pouco mais abaixo.
             
             var itemIndex = 0
             var contentSizeHeight: CGFloat = 0
             
-            // 4
+            
             while itemIndex < totalItemsInSection {
-                // 5
+                
                 let indexPath = IndexPath(item: itemIndex, section: 0)
                 let columnIndex = self.columnIndexForItemAt(indexPath: indexPath)
                 
-                // 6
                 let attributeRect = calculateItemFrame(indexPath: indexPath, columnIndex: columnIndex, columnYoffset: columnsYoffset[columnIndex])    // Como nossas cells serão sempre do msm tam uma função é dispensada.
                 let targetLayoutAttributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
                 targetLayoutAttributes.frame = attributeRect
                 
-                // 7
                 contentSizeHeight = max(attributeRect.maxY, contentSizeHeight)
                 
-                // Aqui eu faço com que a primeira e ultima coluna comecem um pouco mais abaixo.
-//                let initialYSpace: CGFloat = columnIndex != 1 ? attributeRect.maxY / 2 : 0.0
                 columnsYoffset[columnIndex] = attributeRect.maxY + interItemsSpacing
                 
                 layoutMap[indexPath] = targetLayoutAttributes
@@ -80,7 +73,6 @@ class CustomLayout: UICollectionViewLayout {
                 itemIndex += 1
             }
             
-            // 8
             contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right, height: contentSizeHeight)
         }
     }
@@ -108,8 +100,7 @@ class CustomLayout: UICollectionViewLayout {
     
     // 1
     func columnIndexForItemAt(indexPath: IndexPath) -> Int {
-        let columnIndex = indexPath.item % totalColumns
-//        return self.isLastItemSingleInRow(indexPath) ? kReducedHeightColumnIndex : columnIndex
+        let columnIndex = indexPath.item % totalColumns    // Conseguimos o número da coluna através do mod (0 % 3 = 0, 5 % 3 = 2)
         return columnIndex
     }
     
