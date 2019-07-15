@@ -13,7 +13,7 @@ enum MenuOpcoes{
     case biblioteca
 }
 
-protocol imagePickerFotoSelecionada{
+protocol imagePickerFotoSelecionada {
     func imagePickerFotoSelecionada(image: UIImage)
 }
 

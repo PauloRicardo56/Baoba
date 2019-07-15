@@ -83,11 +83,7 @@ class CustomLayout: UICollectionViewLayout {
             // 8
             contentSize = CGSize(width: collectionView!.bounds.width - contentInsets.left - contentInsets.right, height: contentSizeHeight)
         }
-        
-        //UIView.animate(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, options: [.autoreverse, .curveEaseInOut, .curveLinear, .repeat, .], animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
     }
-    
-    
     
     
     // Calculating the initial item’s size, depending on provided content size, and number of columns. Also, we fill a columnsXoffset array with x-position info, for each column.
