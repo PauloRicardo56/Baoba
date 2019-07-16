@@ -30,6 +30,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         super.viewDidLoad()
         self.imagePicker.delegate = self
         self.mainPerson = desconhecido
+        print("teste git add -i")
     }
     
     // Como começar uma CollectionView na última cell?
