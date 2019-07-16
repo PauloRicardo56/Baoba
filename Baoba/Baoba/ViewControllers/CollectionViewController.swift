@@ -52,27 +52,39 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        
-        cell.isHidden = true
         cell.image.image = nil
-        cell.name.text = ""
+        cell.name.text = String(indexPath.row)
+        cell.isHidden = true
         
+        // Alterar para switch/case
         if let principal = self.mainPerson{
-            switch(indexPath.row){
-            case 0:
+            if indexPath.row == 0{
                 cell.image.image = principal.mae?.image
-                cell.name.text = principal.mae?.nome
+                cell.name.text = String(indexPath.row)
                 cell.isHidden = false
-                break
-            case 4:
+            }else if indexPath.row == 4{
                 cell.image.image = principal.image
-                cell.name.text = principal.nome
+                cell.name.text = String(indexPath.row)
                 cell.isHidden = false
-                break
-            default:
+            }else if indexPath.row == 1{
+                cell.image.image = principal.conjuge?.image
+                cell.name.text = String(indexPath.row)
+                cell.isHidden = false
+            }else if indexPath.row == 2{
+                cell.image.image = principal.pai?.image
+                cell.name.text = String(indexPath.row)
+                cell.isHidden = false
+            }else{
                 cell.isHidden = true
             }
         }
+        
+        collectionView.performBatchUpdates({
+            collectionView.reloadItems(at: [indexPath])
+        }, completion: nil)
+        
+        
+            
         return cell
     }
 
