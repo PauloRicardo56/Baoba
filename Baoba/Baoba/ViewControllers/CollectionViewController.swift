@@ -1,6 +1,6 @@
 import UIKit
 
-class CollectionViewController: UICollectionViewController,UITextFieldDelegate,UITextViewDelegate {
+class CollectionViewController: UICollectionViewController,UITextFieldDelegate,UITextViewDelegate{
     
     var numOfCells = 9
     var numOfSections = 1
@@ -56,6 +56,8 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         cell.image.image = nil
         cell.name.text = String(indexPath.row)
         cell.isHidden = true
+        
+        
         
         // Alterar para switch/case
         if let principal = self.mainPerson{
@@ -130,7 +132,11 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func mostraView(cell: UICollectionViewCell){
 
-        cell.isHidden = true
+        
+        collectionView.indexPathsForVisibleItems.forEach { (index) in
+            collectionView.cellForItem(at: index)?.isHidden = true
+        }
+        
         newUsrData.isHidden = false
         newUsrData.alpha = 1.0
         usrViewBounds()
