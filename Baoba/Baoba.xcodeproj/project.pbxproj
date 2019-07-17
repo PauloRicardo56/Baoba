@@ -147,7 +147,6 @@
 				23C85BB222D5264C00C99D03 /* Sources */,
 				23C85BB322D5264C00C99D03 /* Frameworks */,
 				23C85BB422D5264C00C99D03 /* Resources */,
-				9DC9D27D3B9D051C100ECA13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,23 +204,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9DC9D27D3B9D051C100ECA13 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Baoba/Pods-Baoba-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Baoba/Pods-Baoba-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Baoba/Pods-Baoba-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B5C738D3575E13D65DD7DA15 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
