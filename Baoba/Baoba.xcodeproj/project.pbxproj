@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04CA702AF68EAFF9A06C2195 /* Pods_Baoba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17321BED9D6F46FF54764043 /* Pods_Baoba.framework */; };
 		23C85BBA22D5264C00C99D03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C85BB922D5264C00C99D03 /* AppDelegate.swift */; };
 		23C85BC122D5264C00C99D03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C85BC022D5264C00C99D03 /* Assets.xcassets */; };
 		23C85BC422D5264C00C99D03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C85BC222D5264C00C99D03 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17321BED9D6F46FF54764043 /* Pods_Baoba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baoba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C85BB622D5264C00C99D03 /* Baoba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baoba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C85BB922D5264C00C99D03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23C85BC022D5264C00C99D03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		23C85BCF22D676FA00C99D03 /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		23C85BD222D6778C00C99D03 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		23C85BD422D677D600C99D03 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		4D276CA3EE2567934D676F21 /* Pods-Baoba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baoba.debug.xcconfig"; path = "Target Support Files/Pods-Baoba/Pods-Baoba.debug.xcconfig"; sourceTree = "<group>"; };
+		D37EA3E453EA1F6061BE075F /* Pods-Baoba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baoba.release.xcconfig"; path = "Target Support Files/Pods-Baoba/Pods-Baoba.release.xcconfig"; sourceTree = "<group>"; };
 		E60DFFEB22D6302100447260 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E60DFFED22D6327500447260 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E6604F6022D6521F0074AADA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CA702AF68EAFF9A06C2195 /* Pods_Baoba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				23C85BB822D5264C00C99D03 /* Baoba */,
 				23C85BB722D5264C00C99D03 /* Products */,
+				FB08CE5929238A03F4FA1CB2 /* Pods */,
+				3FF6BB1DA846767E79F42C24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +92,14 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		3FF6BB1DA846767E79F42C24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17321BED9D6F46FF54764043 /* Pods_Baoba.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E60DFFE422D62E3400447260 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +126,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		FB08CE5929238A03F4FA1CB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D276CA3EE2567934D676F21 /* Pods-Baoba.debug.xcconfig */,
+				D37EA3E453EA1F6061BE075F /* Pods-Baoba.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23C85BC822D5264C00C99D03 /* Build configuration list for PBXNativeTarget "Baoba" */;
 			buildPhases = (
+				B5C738D3575E13D65DD7DA15 /* [CP] Check Pods Manifest.lock */,
 				23C85BB222D5264C00C99D03 /* Sources */,
 				23C85BB322D5264C00C99D03 /* Frameworks */,
 				23C85BB422D5264C00C99D03 /* Resources */,
+				9DC9D27D3B9D051C100ECA13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +203,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DC9D27D3B9D051C100ECA13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Baoba/Pods-Baoba-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Baoba/Pods-Baoba-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Baoba/Pods-Baoba-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5C738D3575E13D65DD7DA15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Baoba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23C85BB222D5264C00C99D03 /* Sources */ = {
@@ -324,6 +393,7 @@
 		};
 		23C85BC922D5264C00C99D03 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D276CA3EE2567934D676F21 /* Pods-Baoba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -342,6 +412,7 @@
 		};
 		23C85BCA22D5264C00C99D03 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D37EA3E453EA1F6061BE075F /* Pods-Baoba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

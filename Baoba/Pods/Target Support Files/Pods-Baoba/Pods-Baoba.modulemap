@@ -1,0 +1,6 @@
+framework module Pods_Baoba {
+  umbrella header "Pods-Baoba-umbrella.h"
+
+  export *
+  module * { export * }
+}
