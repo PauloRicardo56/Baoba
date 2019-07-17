@@ -32,8 +32,6 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             self.mostrarMultimidia(opcao: opcao)
         }
         present(menu,animated: true,completion: nil)
-        
-        
     }
     
     func arredondaView(view: UIView, multiplicador: CGFloat) {
@@ -72,7 +70,6 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             return
         }
         
-        
         let pessoa = Person(nome: nome, sexo: sexo, descricao: description, image: image,visivel: true)
         pessoa.pai = desconhecido
         pessoa.mae = desconhecido
@@ -81,7 +78,17 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         persons.append(pessoa)
         mainPerson = pessoa
         
+        self.resetarDados()
+        
+        
+        self.collectionView.indexPathsForVisibleItems.forEach { (index) in
+            self.collectionView.cellForItem(at: index)?.alpha = 1.0
+        }
+        
         collectionView.reloadData()
+        collectionView.indexPathsForVisibleItems.forEach { (index) in
+            collectionView.cellForItem(at: index)?.isHidden = false
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -101,8 +108,12 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         return true
     }
     
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        newUsrData.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
-//    }
-    
+    func resetarDados(){
+        self.nameTextField.text = ""
+        self.descriptionTextView.text = ""
+        self.personImageView.isHidden = true
+        self.addFotoBtn.isHidden = false
+    }
+
+
 }
