@@ -28,9 +28,11 @@ class Person{
         self.descricao = descricao
         self.image = image
         self.visivel = visivel
+        print("foi")
     }
     
-
+    
 }
+
 
 
