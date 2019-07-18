@@ -76,7 +76,24 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         pessoa.conjuge = desconhecido
         
         persons.append(pessoa)
-        mainPerson = pessoa
+        
+        switch self.indexPathRow {
+        case 0:
+            mainPerson?.mae = pessoa
+        case 1:
+            mainPerson?.conjuge = pessoa
+        case 2:
+            mainPerson?.pai = pessoa
+        case 4:
+            mainPerson = pessoa
+        default:
+            if self.indexPathRow! % 3 == 0 || self.indexPathRow! % 3 == 2{
+                mainPerson?.irmaos.append(pessoa)
+            }else{
+                mainPerson?.filhos.append(pessoa)
+            }
+        }
+        //mainPerson = pessoa
         
         self.resetarDados()
         

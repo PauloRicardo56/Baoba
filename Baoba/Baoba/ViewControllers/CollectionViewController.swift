@@ -7,7 +7,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     var lastIndex: IndexPath!
     var list: [CollectionViewCell] = []
     var listIndex: [IndexPath] = []
-    var currCell: IndexPath? = nil
+    var indexPathRow: Int?
     var cell = CollectionViewCell()
     var persons = [Person]()
     var vetorPessoas: [Int:Person] = [:]
@@ -94,6 +94,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        self.indexPathRow = indexPath.row
         mostraView(cell: cell)
     }
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -131,8 +132,6 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func mostraView(cell: UICollectionViewCell){
-
-        
         collectionView.indexPathsForVisibleItems.forEach { (index) in
             collectionView.cellForItem(at: index)?.isHidden = true
         }

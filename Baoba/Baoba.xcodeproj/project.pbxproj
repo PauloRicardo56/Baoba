@@ -132,7 +132,6 @@
 				4D276CA3EE2567934D676F21 /* Pods-Baoba.debug.xcconfig */,
 				D37EA3E453EA1F6061BE075F /* Pods-Baoba.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
