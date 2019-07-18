@@ -133,4 +133,5 @@ extension CollectionViewController: imagePickerFotoSelecionada{
     }
 
 
+    // teste
 }
