@@ -31,6 +31,8 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         self.imagePicker.delegate = self
         self.mainPerson = desconhecido
         print("teste git add -i")
+        
+        getTimeRn()
     }
     
     // Como começar uma CollectionView na última cell?
@@ -46,6 +48,33 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numOfCells
+    }
+    
+    func getTimeRn(){
+        let urlString = "https://worldtimeapi.org/api/timezone/America/Sao_Paulo"
+        let url = URL(string: urlString)
+        let session = URLSession.shared
+        let task = session.dataTask(with: url!, completionHandler: { data, response, error -> Void in
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, Any>
+                if let JsonTime = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any]{
+                    let teste = JsonTime["datetime"]! as! String
+                    var horaVet: [Character] = []
+                    for letra in teste{
+                        horaVet.append(letra)
+                    }
+                    let hora = String(horaVet[11]) + String(horaVet[12])
+                    DispatchQueue.main.async {
+                        if Int(hora)! > 06 && Int(hora)! < 18 {
+                            self.collectionView.backgroundColor = .gray
+                        }
+                    }
+                }
+            } catch {
+                print("error")
+            }
+        })
+        task.resume()
     }
     
     
