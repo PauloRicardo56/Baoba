@@ -77,17 +77,31 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         personCD.sexo = sexo
         personCD.descricao = description
         personCD.image = image.pngData() as NSData? //converter UIImage para NSData
+        let idAtual: Int16!
+        if UserDefaults.standard.object(forKey: "idAtual") == nil {
+            idAtual = 0
+            UserDefaults.standard.set(idAtual+1, forKey: "idAtual")
+        }else {
+            idAtual = UserDefaults.standard.object(forKey: "idAtual") as! Int16
+            UserDefaults.standard.set(idAtual+1, forKey: "idAtual")
+        }
 
+        personCD.id = UserDefaults.standard.object(forKey: "idAtual") as! Int16
+
+        print("indexPath = \(indexPathRow)")
         switch self.indexPathRow {
         case 0:
             mainPerson?.mae = personCD
+            recuperarMainPerson()
         case 1:
             mainPerson?.conjuge = personCD
+            recuperarMainPerson()
         case 2:
             mainPerson?.pai = personCD
+            recuperarMainPerson()
         case 4:
             mainPerson = personCD
-            UserDefaults.standard.set(mainPerson?.objectID.uriRepresentation().absoluteString, forKey: "mainPerson")
+            UserDefaults.standard.set(personCD.id, forKey: "mainPerson")
         default:
             let relacionamentoCD = NSEntityDescription.insertNewObject(forEntityName: "RelacionamentosCD", into: context) as! RelacionamentosCD
             relacionamentoCD.id_person_1 = mainPerson?.objectID.uriRepresentation()
@@ -98,6 +112,7 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             }else{
                 relacionamentoCD.parentesco = 2 //filho
             }
+            recuperarMainPerson()
         }
         
         
@@ -110,15 +125,15 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         
         self.resetarDados()
         
-        
         self.collectionView.indexPathsForVisibleItems.forEach { (index) in
             self.collectionView.cellForItem(at: index)?.alpha = 1.0
         }
-        
+
         collectionView.reloadData()
-        collectionView.indexPathsForVisibleItems.forEach { (index) in
-            collectionView.cellForItem(at: index)?.isHidden = false
-        }
+        
+//        collectionView.indexPathsForVisibleItems.forEach { (index) in
+//            collectionView.cellForItem(at: index)?.isHidden = false
+//        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -143,6 +158,17 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         self.descriptionTextView.text = ""
         self.personImageView.isHidden = true
         self.addFotoBtn.isHidden = false
+    }
+    
+    func recuperarMainPerson(){
+        let request: NSFetchRequest<PersonCD> = PersonCD.fetchRequest()
+        let id = UserDefaults.standard.object(forKey: "mainPerson") as! Int16
+        print(id)
+        let predicteEqual = NSPredicate(format: "id == %@", NSNumber(integerLiteral: Int(id)))
+        request.predicate = predicteEqual
+        
+        let mainPersonRecuperado = try? context.fetch(request)
+        mainPerson = mainPersonRecuperado![0]
     }
 
 

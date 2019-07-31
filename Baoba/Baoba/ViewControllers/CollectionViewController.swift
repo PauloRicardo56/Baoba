@@ -30,17 +30,20 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imagePicker.delegate = self
-        UserDefaults.standard
-        
-        print("teste git add -i")
-        
-        UserDefaults.standard.set(nil, forKey: "mainPerson")
-        
-        getTimeRn()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
+        
+        self.imagePicker.delegate = self
+        UserDefaults.standard
+        //UserDefaults.standard.set(nil, forKey: "idAtual")
+        //UserDefaults.standard.set(nil, forKey: "mainPerson")
+        
+        print("teste git add -i")
+        
+        getTimeRn()
+        
+        
         
         if UserDefaults.standard.object(forKey: "mainPerson") == nil {
             let mainPersonInicial = NSEntityDescription.insertNewObject(forEntityName: "PersonCD", into: context) as! PersonCD
@@ -50,19 +53,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
             mainPersonInicial.nome = ""
             self.mainPerson = mainPersonInicial
         }else{
-            let request: NSFetchRequest<PersonCD> = PersonCD.fetchRequest()
-            let id = UserDefaults.standard.object(forKey: "mainPerson") as! String
-//            let predicteEqual = NSPredicate(format: "objectID == %@", id)
-            
-            
-            request.predicate = predicteEqual
-            
-            
-            let mainPersonRecuperado = try? context.fetch(request)
-           
-            self.mainPerson = mainPersonRecuperado![0]
-            
-            
+            recuperarMainPerson()
             
         }
         
@@ -118,13 +109,12 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         cell.name.text = String(indexPath.row)
         cell.isHidden = true
         
-        
-        
+        print(mainPerson?.mae?.nome)
         // Alterar para switch/case
         if let principal = self.mainPerson{
             if indexPath.row == 0{
                 if let mae = mainPerson?.mae{
-                    cell.image.image = UIImage(data: principal.mae?.image! as! Data)
+                    cell.image.image = UIImage(data: principal.mae!.image! as Data)
                     cell.name.text = String(indexPath.row)
                     cell.isHidden = false
                 }else{
@@ -138,7 +128,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
                 cell.isHidden = false
             }else if indexPath.row == 1{
                 if let conjuge = mainPerson?.conjuge{
-                    cell.image.image = UIImage(data: principal.conjuge?.image! as! Data)
+                    cell.image.image = UIImage(data: principal.conjuge!.image! as! Data)
                     cell.name.text = String(indexPath.row)
                     cell.isHidden = false
                 }else{
@@ -148,7 +138,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
                 }
             }else if indexPath.row == 2{
                 if let pai = mainPerson?.pai{
-                    cell.image.image = UIImage(data: principal.pai?.image! as! Data)
+                    cell.image.image = UIImage(data: principal.pai!.image! as! Data)
                     cell.name.text = String(indexPath.row)
                     cell.isHidden = false
                 }else{
@@ -165,7 +155,6 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
             collectionView.reloadItems(at: [indexPath])
         }, completion: nil)
         
-        // jkhfds
             
         return cell
     }
