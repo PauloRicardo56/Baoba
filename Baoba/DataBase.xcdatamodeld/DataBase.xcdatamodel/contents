@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PersonCD" representedClassName="PersonCD" syncable="YES">
+        <attribute name="descricao" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sexo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="conjuge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonCD" inverseName="conjuge" inverseEntity="PersonCD" syncable="YES"/>
+        <relationship name="mae" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonCD" syncable="YES"/>
+        <relationship name="pai" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonCD" syncable="YES"/>
+    </entity>
+    <entity name="RelacionamentosCD" representedClassName="RelacionamentosCD" syncable="YES">
+        <attribute name="id_person_1" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="id_person_2" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="parentesco" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PersonCD" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="RelacionamentosCD" positionX="0" positionY="99" width="128" height="90"/>
+    </elements>
+</model>

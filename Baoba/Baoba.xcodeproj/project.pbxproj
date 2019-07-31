@@ -16,6 +16,12 @@
 		23C85BD522D677D600C99D03 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C85BD422D677D600C99D03 /* CollectionViewCell.swift */; };
 		E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFEB22D6302100447260 /* ImagePicker.swift */; };
 		E60DFFEE22D6327500447260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DFFED22D6327500447260 /* Person.swift */; };
+		E656742822F0B7B90092ACA1 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E656742622F0B7B90092ACA1 /* DataBase.xcdatamodeld */; };
+		E656742E22F0C7620092ACA1 /* Parent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656742D22F0C7620092ACA1 /* Parent.swift */; };
+		E656745422F0E5A50092ACA1 /* PersonCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656745022F0E5A40092ACA1 /* PersonCD+CoreDataClass.swift */; };
+		E656745522F0E5A50092ACA1 /* PersonCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656745122F0E5A40092ACA1 /* PersonCD+CoreDataProperties.swift */; };
+		E656745622F0E5A50092ACA1 /* RelacionamentosCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656745222F0E5A40092ACA1 /* RelacionamentosCD+CoreDataClass.swift */; };
+		E656745722F0E5A50092ACA1 /* RelacionamentosCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656745322F0E5A50092ACA1 /* RelacionamentosCD+CoreDataProperties.swift */; };
 		E6604F6122D6521F0074AADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6604F6022D6521F0074AADA /* Main.storyboard */; };
 		E6604F8B22D7AB140074AADA /* FormAddPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6604F8A22D7AB140074AADA /* FormAddPerson.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +40,12 @@
 		D37EA3E453EA1F6061BE075F /* Pods-Baoba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baoba.release.xcconfig"; path = "Target Support Files/Pods-Baoba/Pods-Baoba.release.xcconfig"; sourceTree = "<group>"; };
 		E60DFFEB22D6302100447260 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E60DFFED22D6327500447260 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		E656742722F0B7B90092ACA1 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		E656742D22F0C7620092ACA1 /* Parent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parent.swift; sourceTree = "<group>"; };
+		E656745022F0E5A40092ACA1 /* PersonCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E656745122F0E5A40092ACA1 /* PersonCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E656745222F0E5A40092ACA1 /* RelacionamentosCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RelacionamentosCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E656745322F0E5A50092ACA1 /* RelacionamentosCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RelacionamentosCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E6604F6022D6521F0074AADA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E6604F8A22D7AB140074AADA /* FormAddPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddPerson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +65,7 @@
 		23C85BAD22D5264B00C99D03 = {
 			isa = PBXGroup;
 			children = (
+				E656742622F0B7B90092ACA1 /* DataBase.xcdatamodeld */,
 				23C85BB822D5264C00C99D03 /* Baoba */,
 				23C85BB722D5264C00C99D03 /* Products */,
 				FB08CE5929238A03F4FA1CB2 /* Pods */,
@@ -71,12 +84,12 @@
 		23C85BB822D5264C00C99D03 /* Baoba */ = {
 			isa = PBXGroup;
 			children = (
+				E656742F22F0DCD00092ACA1 /* NSObjectSubClass */,
 				23C85BCD22D676BF00C99D03 /* CollectionView */,
 				E60DFFE422D62E3400447260 /* Models */,
 				E60DFFE622D62E3400447260 /* ViewControllers */,
 				E60DFFE522D62E3400447260 /* Views */,
 				23C85BB922D5264C00C99D03 /* AppDelegate.swift */,
-				23C85BC222D5264C00C99D03 /* LaunchScreen.storyboard */,
 				23C85BC022D5264C00C99D03 /* Assets.xcassets */,
 				23C85BC522D5264C00C99D03 /* Info.plist */,
 			);
@@ -105,6 +118,7 @@
 			children = (
 				E60DFFEB22D6302100447260 /* ImagePicker.swift */,
 				E60DFFED22D6327500447260 /* Person.swift */,
+				E656742D22F0C7620092ACA1 /* Parent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +126,7 @@
 		E60DFFE522D62E3400447260 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				23C85BC222D5264C00C99D03 /* LaunchScreen.storyboard */,
 				E6604F6022D6521F0074AADA /* Main.storyboard */,
 			);
 			path = Views;
@@ -124,6 +139,17 @@
 				E6604F8A22D7AB140074AADA /* FormAddPerson.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E656742F22F0DCD00092ACA1 /* NSObjectSubClass */ = {
+			isa = PBXGroup;
+			children = (
+				E656745022F0E5A40092ACA1 /* PersonCD+CoreDataClass.swift */,
+				E656745122F0E5A40092ACA1 /* PersonCD+CoreDataProperties.swift */,
+				E656745222F0E5A40092ACA1 /* RelacionamentosCD+CoreDataClass.swift */,
+				E656745322F0E5A50092ACA1 /* RelacionamentosCD+CoreDataProperties.swift */,
+			);
+			path = NSObjectSubClass;
 			sourceTree = "<group>";
 		};
 		FB08CE5929238A03F4FA1CB2 /* Pods */ = {
@@ -232,13 +258,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E656745722F0E5A50092ACA1 /* RelacionamentosCD+CoreDataProperties.swift in Sources */,
+				E656745522F0E5A50092ACA1 /* PersonCD+CoreDataProperties.swift in Sources */,
 				E60DFFEE22D6327500447260 /* Person.swift in Sources */,
 				23C85BD122D676FA00C99D03 /* CustomLayout.swift in Sources */,
+				E656742822F0B7B90092ACA1 /* DataBase.xcdatamodeld in Sources */,
 				E6604F8B22D7AB140074AADA /* FormAddPerson.swift in Sources */,
 				23C85BD522D677D600C99D03 /* CollectionViewCell.swift in Sources */,
 				23C85BBA22D5264C00C99D03 /* AppDelegate.swift in Sources */,
 				23C85BD322D6778C00C99D03 /* CollectionViewController.swift in Sources */,
 				E60DFFEC22D6302100447260 /* ImagePicker.swift in Sources */,
+				E656742E22F0C7620092ACA1 /* Parent.swift in Sources */,
+				E656745422F0E5A50092ACA1 /* PersonCD+CoreDataClass.swift in Sources */,
+				E656745622F0E5A50092ACA1 /* RelacionamentosCD+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +464,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E656742622F0B7B90092ACA1 /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E656742722F0B7B90092ACA1 /* DataBase.xcdatamodel */,
+			);
+			currentVersion = E656742722F0B7B90092ACA1 /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 23C85BAE22D5264B00C99D03 /* Project object */;
 }

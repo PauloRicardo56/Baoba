@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension CollectionViewController: imagePickerFotoSelecionada{
     func mostrarMultimidia(opcao:MenuOpcoes){
@@ -50,6 +51,7 @@ extension CollectionViewController: imagePickerFotoSelecionada{
         self.newUsrData.layer.cornerRadius = self.newUsrData.frame.width * 0.05
         self.newUsrData.layer.borderWidth = 1
     }
+
     
     
     @IBAction func usrConfirm(_ sender: Any) {
@@ -70,30 +72,41 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             return
         }
         
-        let pessoa = Person(nome: nome, sexo: sexo, descricao: description, image: image,visivel: true)
-        pessoa.pai = desconhecido
-        pessoa.mae = desconhecido
-        pessoa.conjuge = desconhecido
-        
-        persons.append(pessoa)
-        
+        let personCD = NSEntityDescription.insertNewObject(forEntityName: "PersonCD", into: context) as! PersonCD
+        personCD.nome = nome
+        personCD.sexo = sexo
+        personCD.descricao = description
+        personCD.image = image.pngData() as NSData? //converter UIImage para NSData
+
         switch self.indexPathRow {
         case 0:
-            mainPerson?.mae = pessoa
+            mainPerson?.mae = personCD
         case 1:
-            mainPerson?.conjuge = pessoa
+            mainPerson?.conjuge = personCD
         case 2:
-            mainPerson?.pai = pessoa
+            mainPerson?.pai = personCD
         case 4:
-            mainPerson = pessoa
+            mainPerson = personCD
+            UserDefaults.standard.set(personCD, forKey: "mainPerson")
         default:
+            let relacionamentoCD = NSEntityDescription.insertNewObject(forEntityName: "RelacionamentosCD", into: context) as! RelacionamentosCD
+            relacionamentoCD.id_person_1 = mainPerson?.objectID.uriRepresentation()
+            relacionamentoCD.id_person_2 = personCD.objectID.uriRepresentation()
+            
             if self.indexPathRow! % 3 == 0 || self.indexPathRow! % 3 == 2{
-                mainPerson?.irmaos.append(pessoa)
+                relacionamentoCD.parentesco = 1 //irmao
             }else{
-                mainPerson?.filhos.append(pessoa)
+                relacionamentoCD.parentesco = 2 //filho
             }
         }
-        //mainPerson = pessoa
+        
+        
+        do {
+            try context.save()
+            print("dados salvos corretamente!!!"  )
+        } catch {
+            print("erro ao salvar os dados")
+        }
         
         self.resetarDados()
         

@@ -14,7 +14,6 @@ class Person{
     var sexo = String()
     var descricao = String()
     var image = UIImage()
-    var visivel:Bool
     
     weak var pai:Person?
     weak var mae:Person?
@@ -22,12 +21,11 @@ class Person{
     var irmaos = Array<Person>()
     var filhos = Array<Person>()
     
-    init(nome: String, sexo: String, descricao: String, image: UIImage,visivel: Bool) {
+    init(nome: String, sexo: String, descricao: String, image: UIImage) {
         self.nome = nome
         self.sexo = sexo
         self.descricao = descricao
         self.image = image
-        self.visivel = visivel
         print("foi")
     }
     

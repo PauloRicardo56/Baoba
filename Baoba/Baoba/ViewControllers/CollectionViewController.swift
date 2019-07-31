@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class CollectionViewController: UICollectionViewController,UITextFieldDelegate,UITextViewDelegate{
     
@@ -11,8 +12,8 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     var cell = CollectionViewCell()
     var persons = [Person]()
     var vetorPessoas: [Int:Person] = [:]
-    let desconhecido = Person(nome: "Desconhecido", sexo: "Desconhecido", descricao: "Desconhecido", image: UIImage(named: "imageDesconhecido")!,visivel: true)
-    weak var mainPerson:Person?
+    //let desconhecido = Person(nome: "Desconhecido", sexo: "Desconhecido", descricao: "Desconhecido", image: UIImage(named: "imageDesconhecido")!)
+    weak var mainPerson:PersonCD?
     
     //@IBOutlet weak var newUsrData: FirstFormController!
     @IBOutlet weak var newUsrData: UIScrollView!
@@ -23,22 +24,38 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
     @IBOutlet weak var sexoSegmentedControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var addBtn2: UIButton!
+    var context: NSManagedObjectContext!
     
     let imagePicker = ImagePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker.delegate = self
-        self.mainPerson = desconhecido
+        UserDefaults.standard
+        
         print("teste git add -i")
         
         getTimeRn()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
+        
+        if UserDefaults.standard.object(forKey: "mainPerson") == nil {
+            let mainPersonInicial = NSEntityDescription.insertNewObject(forEntityName: "PersonCD", into: context) as! PersonCD
+            guard let imageDesconhecido = UIImage(named: "imageDescinhecido") else{return}
+            //converter UIImage para NSData
+            mainPersonInicial.image = imageDesconhecido.pngData() as NSData?
+            mainPersonInicial.nome = ""
+            self.mainPerson = mainPersonInicial
+        }else{
+            self.mainPerson = UserDefaults.standard.object(forKey: "mainPerson") as! PersonCD
+        }
+        
     }
     
     // Como começar uma CollectionView na última cell?
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView.scrollToItem(at: IndexPath(item: numOfCells-1, section: numOfSections-1), at: UICollectionView.ScrollPosition.top, animated: false)
     }
 
     
@@ -56,7 +73,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         let session = URLSession.shared
         let task = session.dataTask(with: url!, completionHandler: { data, response, error -> Void in
             do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, Any>
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 if let JsonTime = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any]{
                     let teste = JsonTime["datetime"]! as! String
                     var horaVet: [Character] = []
@@ -91,19 +108,19 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         // Alterar para switch/case
         if let principal = self.mainPerson{
             if indexPath.row == 0{
-                cell.image.image = principal.mae?.image
+                cell.image.image = UIImage(data: principal.mae?.image! as! Data)
                 cell.name.text = String(indexPath.row)
                 cell.isHidden = false
             }else if indexPath.row == 4{
-                cell.image.image = principal.image
+                cell.image.image = UIImage(data: principal.image! as Data)
                 cell.name.text = String(indexPath.row)
                 cell.isHidden = false
             }else if indexPath.row == 1{
-                cell.image.image = principal.conjuge?.image
+                cell.image.image = UIImage(data: principal.conjuge?.image! as! Data)
                 cell.name.text = String(indexPath.row)
                 cell.isHidden = false
             }else if indexPath.row == 2{
-                cell.image.image = principal.pai?.image
+                cell.image.image = UIImage(data: principal.pai?.image! as! Data)
                 cell.name.text = String(indexPath.row)
                 cell.isHidden = false
             }else{
