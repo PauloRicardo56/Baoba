@@ -87,7 +87,7 @@ extension CollectionViewController: imagePickerFotoSelecionada{
             mainPerson?.pai = personCD
         case 4:
             mainPerson = personCD
-            UserDefaults.standard.set(personCD, forKey: "mainPerson")
+            UserDefaults.standard.set(mainPerson?.objectID.uriRepresentation().absoluteString, forKey: "mainPerson")
         default:
             let relacionamentoCD = NSEntityDescription.insertNewObject(forEntityName: "RelacionamentosCD", into: context) as! RelacionamentosCD
             relacionamentoCD.id_person_1 = mainPerson?.objectID.uriRepresentation()

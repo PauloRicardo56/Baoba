@@ -35,6 +35,8 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         
         print("teste git add -i")
         
+        UserDefaults.standard.set(nil, forKey: "mainPerson")
+        
         getTimeRn()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -42,13 +44,26 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         
         if UserDefaults.standard.object(forKey: "mainPerson") == nil {
             let mainPersonInicial = NSEntityDescription.insertNewObject(forEntityName: "PersonCD", into: context) as! PersonCD
-            guard let imageDesconhecido = UIImage(named: "imageDescinhecido") else{return}
+            guard let imageDesconhecido = UIImage(named: "imageDesconhecido") else{return}
             //converter UIImage para NSData
             mainPersonInicial.image = imageDesconhecido.pngData() as NSData?
             mainPersonInicial.nome = ""
             self.mainPerson = mainPersonInicial
         }else{
-            self.mainPerson = UserDefaults.standard.object(forKey: "mainPerson") as! PersonCD
+            let request: NSFetchRequest<PersonCD> = PersonCD.fetchRequest()
+            let id = UserDefaults.standard.object(forKey: "mainPerson") as! String
+//            let predicteEqual = NSPredicate(format: "objectID == %@", id)
+            
+            
+            request.predicate = predicteEqual
+            
+            
+            let mainPersonRecuperado = try? context.fetch(request)
+           
+            self.mainPerson = mainPersonRecuperado![0]
+            
+            
+            
         }
         
     }
@@ -108,21 +123,39 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
         // Alterar para switch/case
         if let principal = self.mainPerson{
             if indexPath.row == 0{
-                cell.image.image = UIImage(data: principal.mae?.image! as! Data)
-                cell.name.text = String(indexPath.row)
-                cell.isHidden = false
+                if let mae = mainPerson?.mae{
+                    cell.image.image = UIImage(data: principal.mae?.image! as! Data)
+                    cell.name.text = String(indexPath.row)
+                    cell.isHidden = false
+                }else{
+                    cell.image.image = UIImage(named: "imageDesconhecido")
+                    cell.name.text = "Desconhecido"
+                    cell.isHidden = false
+                }
             }else if indexPath.row == 4{
                 cell.image.image = UIImage(data: principal.image! as Data)
                 cell.name.text = String(indexPath.row)
                 cell.isHidden = false
             }else if indexPath.row == 1{
-                cell.image.image = UIImage(data: principal.conjuge?.image! as! Data)
-                cell.name.text = String(indexPath.row)
-                cell.isHidden = false
+                if let conjuge = mainPerson?.conjuge{
+                    cell.image.image = UIImage(data: principal.conjuge?.image! as! Data)
+                    cell.name.text = String(indexPath.row)
+                    cell.isHidden = false
+                }else{
+                    cell.image.image = UIImage(named: "imageDesconhecido")
+                    cell.name.text = "Desconhecido"
+                    cell.isHidden = false
+                }
             }else if indexPath.row == 2{
-                cell.image.image = UIImage(data: principal.pai?.image! as! Data)
-                cell.name.text = String(indexPath.row)
-                cell.isHidden = false
+                if let pai = mainPerson?.pai{
+                    cell.image.image = UIImage(data: principal.pai?.image! as! Data)
+                    cell.name.text = String(indexPath.row)
+                    cell.isHidden = false
+                }else{
+                    cell.image.image = UIImage(named: "imageDesconhecido")
+                    cell.name.text = "Desconhecido"
+                    cell.isHidden = false
+                }
             }else{
                 cell.isHidden = true
             }

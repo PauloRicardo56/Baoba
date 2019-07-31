@@ -65,7 +65,6 @@
 		23C85BAD22D5264B00C99D03 = {
 			isa = PBXGroup;
 			children = (
-				E656742622F0B7B90092ACA1 /* DataBase.xcdatamodeld */,
 				23C85BB822D5264C00C99D03 /* Baoba */,
 				23C85BB722D5264C00C99D03 /* Products */,
 				FB08CE5929238A03F4FA1CB2 /* Pods */,
@@ -84,6 +83,7 @@
 		23C85BB822D5264C00C99D03 /* Baoba */ = {
 			isa = PBXGroup;
 			children = (
+				E656742622F0B7B90092ACA1 /* DataBase.xcdatamodeld */,
 				E656742F22F0DCD00092ACA1 /* NSObjectSubClass */,
 				23C85BCD22D676BF00C99D03 /* CollectionView */,
 				E60DFFE422D62E3400447260 /* Models */,
