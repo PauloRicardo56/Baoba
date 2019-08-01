@@ -116,6 +116,7 @@ class CollectionViewController: UICollectionViewController,UITextFieldDelegate,U
                 if let mae = mainPerson?.mae{
                     cell.image.image = UIImage(data: principal.mae!.image! as Data)
                     cell.name.text = String(indexPath.row)
+                    cell.image.image?.draw(in: cell.frame)
                     cell.isHidden = false
                 }else{
                     cell.image.image = UIImage(named: "imageDesconhecido")

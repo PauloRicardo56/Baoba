@@ -88,17 +88,15 @@ extension CollectionViewController: imagePickerFotoSelecionada{
 
         personCD.id = UserDefaults.standard.object(forKey: "idAtual") as! Int16
 
+        recuperarMainPerson()
         print("indexPath = \(indexPathRow)")
         switch self.indexPathRow {
         case 0:
             mainPerson?.mae = personCD
-            recuperarMainPerson()
         case 1:
             mainPerson?.conjuge = personCD
-            recuperarMainPerson()
         case 2:
             mainPerson?.pai = personCD
-            recuperarMainPerson()
         case 4:
             mainPerson = personCD
             UserDefaults.standard.set(personCD.id, forKey: "mainPerson")
